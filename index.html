@@ -1,50 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minecraft Archives</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="images/icon.png" />
-  <script defer src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <style>
+    :root {
+      --bg-color: #282c34;
+      --text-color: #ffffff;
+    }
+
+    [data-theme="grey"] {
+      --bg-color: #282c34;
+      --text-color: #ffffff;
+    }
+
+    [data-theme="amoled"] {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+    }
+
+    [data-theme="white"] {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    [data-theme="black"] {
+      --bg-color: #1e1e1e;
+      --text-color: #ffffff;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #sidebar {
+      width: 200px;
+      background-color: var(--bg-color);
+      position: absolute;
+      top: 50px;
+      left: 0;
+      padding: 10px;
+      display: none;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #sidebar ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: block;
+      padding: 8px;
+    }
+
+    #sidebar.show {
+      display: block;
+    }
+  </style>
 </head>
-<body>
+<body data-theme="grey">
   <header>
-    <div class="top-bar">
-      <button id="menu-toggle">☰</button>
-      <h1>Minecraft Archives</h1>
-      <select id="language-selector">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="jp">日本語</option>
-        <option value="ru">Русский</option>
-      </select>
-    </div>
-    <nav id="sidebar">
-      <ul>
-        <li><a href="#editions">📚 Editions</a></li>
-        <li><a href="#versions">📄 Versions</a></li>
-        <li><a href="#platforms">🖥️ Platforms</a></li>
-        <li><a href="#unofficial">👾 Unofficial</a></li>
-        <li><a href="#search">🔍 Search</a></li>
-        <li><a href="#credits">📜 Credits</a></li>
-      </ul>
-    </nav>
+    <button id="menu-toggle">☰</button>
+    <h1>Minecraft Archives</h1>
+    <select id="theme-selector">
+      <option value="grey">Grey</option>
+      <option value="amoled">AMOLED</option>
+      <option value="white">White</option>
+      <option value="black">Black</option>
+    </select>
   </header>
 
-  <main>
-    <section id="hero">
-      <h2>A Minecraft archive holding everything available and documented in one place.</h2>
-      <p>✨ Built with love, JSON magic, and a few hidden surprises. ✨</p>
-    </section>
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#">Editions</a></li>
+      <li><a href="#">Versions</a></li>
+      <li><a href="#">Platforms</a></li>
+      <li><a href="#">Unofficial</a></li>
+    </ul>
+  </nav>
 
-    <!-- Sections go here (editions, versions, platforms, etc) -->
+  <main>
+    <p>Welcome to the Minecraft Archives.</p>
   </main>
 
-  <footer>
-    <p>Made with ❤️ by SSMG4 // Project: Minecraft Archives</p>
-    <p>&copy; 2025</p>
-  </footer>
+  <script>
+    const themeSelector = document.getElementById("theme-selector");
+    const body = document.body;
+
+    themeSelector.addEventListener("change", (e) => {
+      const theme = e.target.value;
+      body.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    });
+
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      document.getElementById("sidebar").classList.toggle("show");
+    });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "grey";
+    body.setAttribute("data-theme", savedTheme);
+    themeSelector.value = savedTheme;
+  </script>
 </body>
 </html>
