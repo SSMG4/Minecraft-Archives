@@ -1,8 +1,19 @@
 {
-  "welcome": "Welcome to the Minecraft Archives!",
+  "welcome": "Welcome to the Minecraft Archives",
   "editions": "Editions",
   "versions": "Versions",
   "platforms": "Platforms",
   "unofficial": "Unofficial",
-  "search": "Search..."
+  "search": "Search...",
+  "theme": "Theme",
+  "language": "Language",
+  "about": "About",
+  "footer": "© 2025 Minecraft Archives. All rights reserved.",
+  "dark": "Dark",
+  "light": "Light",
+  "grey": "Grey",
+  "amoled": "AMOLED",
+  "select_theme": "Select Theme",
+  "select_language": "Select Language",
+  "toggle_menu": "Toggle Menu"
 }
