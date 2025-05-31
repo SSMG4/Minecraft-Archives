@@ -4,5 +4,16 @@
   "versions": "Versions",
   "platforms": "Plateformes",
   "unofficial": "Non officiel",
-  "search": "Recherche..."
+  "search": "Recherche...",
+  "theme": "Thème",
+  "language": "Langue",
+  "about": "À propos",
+  "footer": "© 2025 Archives de Minecraft. Tous droits réservés.",
+  "dark": "Sombre",
+  "light": "Clair",
+  "grey": "Gris",
+  "amoled": "AMOLED",
+  "select_theme": "Choisir un thème",
+  "select_language": "Choisir une langue",
+  "toggle_menu": "Afficher/Masquer le menu"
 }
